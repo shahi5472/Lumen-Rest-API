@@ -17,6 +17,9 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+$router->post('/api/login', 'AuthController@login');
+$router->post('/api/register', 'AuthController@register');
+
 $router->group(['prefix'=>'api'], function() use ($router){
     $router->get('/post', 'PostController@index');
     $router->post('/post', 'PostController@store');
